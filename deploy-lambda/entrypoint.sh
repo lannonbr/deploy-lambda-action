@@ -2,7 +2,7 @@
 
 set -e
 
-message=$(jq -r .issue.body "$GITHUB_EVENT_PATH")
+message=$(jq -r .comment.body "$GITHUB_EVENT_PATH")
 echo "$message" | grep -Eq "!deploy" || {
   echo "Didn't contain !deploy. neutral exit..."
   exit 78
