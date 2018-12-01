@@ -6,9 +6,9 @@ const fs = require("fs");
 
 let eventJSON = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
 
-number = eventJSON.number;
+number = eventJSON.pull_request.number;
 
-const { owner, repo } = process.env.GITHUB_REPOSITORY;
+const [ owner, repo ] = process.env.GITHUB_REPOSITORY.split("/");
 
 const commentBody = `
 This is LambdaBot 🤖. I see that this PR has been merged into Master. I can help deploy the changes for you to AWS Lambda.
