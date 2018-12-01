@@ -6,7 +6,7 @@ RUN apt-get update && \
 	apt-get clean -y && \
 rm -rf /var/lib/apt/lists/*
 
-RUN pip3 no-cache-dir install -upgrade awscli
+RUN pip3 --no-cache-dir install --upgrade awscli
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
